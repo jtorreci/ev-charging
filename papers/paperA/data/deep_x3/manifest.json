@@ -1,0 +1,38 @@
+{
+ "sockets": 2,
+ "charger_kw": 70.0,
+ "bess_kwh": 0.0,
+ "grid_kw": null,
+ "pattern": "winter",
+ "n_days": 5,
+ "n_realisations": 3000,
+ "demand_scale": 3,
+ "search_seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "n_eval": 30000,
+ "population": 100,
+ "coverage_levels": [
+  0.5,
+  0.6,
+  0.7,
+  0.8,
+  0.9,
+  0.95,
+  0.99,
+  1.0
+ ],
+ "cost_budgets": [
+  0.0,
+  0.005,
+  0.01,
+  0.02,
+  0.03,
+  0.05
+ ],
+ "purchasable_floor": 0.178834
+}

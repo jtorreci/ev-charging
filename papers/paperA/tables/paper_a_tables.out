@@ -1,0 +1,100 @@
+TABLE I  (tab:valley)  attainable coverage against valley occupancy
+Scale Fleet        Veh.   Demand     rho   Max P5
+x1    2F              2     81.5   0.106   1.0000
+x1    2N 1F           3    115.7   0.150   1.0000
+x1    1N 4F (a)       5    197.4   0.256   1.0000
+x1    1N 4F (b)       5    197.8   0.257   1.0000
+x3    6F              6    241.7   0.314   1.0000
+x1    4N 4F           8    312.5   0.406   1.0000
+x4    8F              8    325.5   0.423   1.0000
+x3    6N 3F           9    349.8   0.454   1.0000
+x4    8N 4F          12    463.2   0.602   1.0000
+x3    3N 12F (a)     15    598.1   0.777   1.0000
+x3    3N 12F (b)     15    599.0   0.778   0.9972
+x4    4N 16F (a)     20    794.4   1.032   0.9651
+x4    4N 16F (b)     20    796.3   1.034   0.9605
+x3    12N 12F        24    938.8   1.219   0.8889
+x4    16N 16F        32   1256.0   1.631   0.7523
+
+TABLE II  (tab:cov_at_cost)  worst-case coverage under a price cap
+Scale Fleet           +0%    +1%    +2%    +3%    +5%
+x3    6F            1.000  1.000  1.000  1.000  1.000
+x3    6N 3F         0.991  0.996  1.000  1.000  1.000
+x3    3N 12F (b)    0.844  0.902  0.957  0.978  0.995
+x3    3N 12F (a)    0.853  0.906  0.958  0.978  1.000
+x3    12N 12F       0.558  0.612  0.708  0.772  0.872
+x4    8F            1.000  1.000  1.000  1.000  1.000
+x4    8N 4F         0.858  0.957  0.987  0.996  1.000
+x4    4N 16F (b)    0.696  0.765  0.848  0.897  0.956
+x4    4N 16F (a)    0.703  0.761  0.858  0.900  0.953
+x4    16N 16F       0.446  0.487  0.591  0.644  0.743
+
+COST OF A COVERAGE TARGET  (sec:front, scale x4)
+  premium over the floor, %, seed mean; '-' = level unreachable
+  x4 4N 16F (a) 50:0.00  70:0.14  90:2.95  95:4.95  99:-   max P5 0.9651
+  x4 4N 16F (b) 50:0.00  70:0.22  90:3.02  95:4.82  99:-   max P5 0.9605
+  x4 16N 16F    50:1.16  70:3.94  90:-  95:-  99:-   max P5 0.7523
+  x4 both 20-vehicle fleets pooled: 70:0.18  90:2.98  95:4.89
+  optimisation time over 75 runs: median 57 s, max 207 s
+
+BOUNDARY SOLUTIONS  (sec:baselines_results, abstract)
+  stochastic >= deterministic in 15 of 15 cells
+  mean margin x1: 4.01 pp
+  mean margin x3: 7.53 pp
+  mean margin x4: 5.50 pp
+  free-arrival P95 cost, all cells: 0.1912 to 0.1938 EUR/kWh (6.9% to 8.4% above the floor)
+  free-arrival P95 cost, x3 and x4: 0.1912 to 0.1923 EUR/kWh
+  deterministic self-overstatement, x3 and x4 (10 cells): 2.73 to 27.45 pp
+  deterministic price-cap breach, max: 5.48%
+
+SEARCH-SEED STABILITY  (sec:stability)
+  levels (50, 70, 90, 95, 99); a reading counts when all five seeds reach the level; population SD
+  readings 66, seeds agree 47, disperse 19
+  dispersion SD: median 3.12e-04, max 9.74e-04 EUR/kWh
+  dispersing readings in cells with rho >= 0.78: 9 of 19
+    scale day level   rho     SD       signal   SD/signal
+    x1     2    99   0.406  7.01e-04    0.0004      2.00
+    x3     0    90   0.778  3.71e-04    0.0017      0.21
+    x3     0    95   0.778  1.91e-04    0.0033      0.06
+    x3     2    70   1.219  2.59e-04    0.0034      0.08
+    x3     3    90   0.777  8.23e-05    0.0015      0.06
+    x3     3    95   0.777  2.28e-04    0.0032      0.07
+    x3     3    99   0.777  6.81e-04    0.0071      0.10
+    x3     4    99   0.454  8.71e-04    0.0005      1.61
+    x4     0    70   1.034  2.55e-04    0.0004      0.65
+    x4     0    90   1.034  1.85e-04    0.0054      0.03
+    x4     0    95   1.034  5.66e-04    0.0086      0.07
+    x4     2    50   1.631  2.74e-04    0.0021      0.13
+    x4     2    70   1.631  1.45e-04    0.0070      0.02
+    x4     3    70   1.032  3.02e-04    0.0002      1.22
+    x4     3    90   1.032  3.47e-04    0.0053      0.07
+    x4     3    95   1.032  9.74e-04    0.0089      0.11
+    x4     4    90   0.602  4.52e-04    0.0014      0.32
+    x4     4    95   0.602  3.12e-04    0.0018      0.17
+    x4     4    99   0.602  7.16e-04    0.0043      0.17
+
+OUT-OF-SAMPLE OPTIMISM  (sec:stability, 12 fresh ensembles)
+  x1: optimism +0.00005, estimator SD 0.00004
+  x3: optimism +0.00079, estimator SD 0.00100
+  x4: optimism +0.00090, estimator SD 0.00132
+  selection contrast, chosen - control (paired over cells x seeds):
+    x1: +0.00004  n=25  t=1.02 (population SD)  t=1.00 (sample SD)
+    x3: +0.00025  n=25  t=0.87 (population SD)  t=0.85 (sample SD)
+    x4: +0.00081  n=25  t=1.57 (population SD)  t=1.54 (sample SD)
+
+OPTIMISM ALONG THE FRONT  (sec:stability, 8 fresh ensembles)
+  points sampled: 750
+  x1: median P(guarantee above truth) 0.000
+  x3: median P(guarantee above truth) 0.500
+  x4: median P(guarantee above truth) 0.562
+  mean optimism per rank-third of the front (4-3-3 split), max over scales and thirds: 0.00059
+  mean optimism per rank-third of the front (3-3-4 split), max over scales and thirds: 0.00063
+  flattest minus steepest third of local slope (NaN slopes dropped):
+    x3 pooled thirds:    -0.00009  (t=-0.41, Welch, n=52/52)
+    x3 per-front thirds: -0.00008  (t=-0.36, Student, n=58/46)
+    x4 pooled thirds:    +0.00030  (t=+1.30, Welch, n=66/65)
+    x4 per-front thirds: +0.00030  (t=+1.28, Student, n=75/59)
+  note: the manuscript quotes -0.00008 (t=-0.36) at x3 and +0.00031 (t=+1.30) at x4;
+  the script that produced them is not preserved, and neither split above
+  reproduces both pairs exactly.
+
