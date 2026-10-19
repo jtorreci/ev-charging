@@ -17,3 +17,8 @@ papers may change shared code.
 
 J.M. Ceballos-Martínez, Carmen Calvo-Jurado and Jesús-A. Torrecilla-Pinero,
 University of Extremadura.
+
+## Licence
+
+Code is released under the MIT License (`LICENSE`); data under CC BY 4.0
+(`LICENSE-DATA`).

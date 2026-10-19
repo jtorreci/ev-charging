@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Cite the tagged release of the paper you are reproducing."
+title: "ev-charging: code and data for research on electric-vehicle charging under uncertainty"
+authors:
+  - family-names: Ceballos-Martínez
+    given-names: J.M.
+    affiliation: University of Extremadura
+  - family-names: Calvo-Jurado
+    given-names: Carmen
+    affiliation: University of Extremadura
+  - family-names: Torrecilla-Pinero
+    given-names: Jesús-A.
+    affiliation: University of Extremadura
+license:
+  - MIT
+  - CC-BY-4.0
+repository-code: "https://github.com/jtorreci/ev-charging"
+type: software
